@@ -9,7 +9,7 @@ const productsData = {
     title: 'JET-X20 MLAG TITANIUM',
     category: 'Koleksi Flagship Atelier',
     price: 3450000,
-    img: 'assets/images/hero-helmet.jpg?v=2',
+    img: 'assets/images/hero-helmet.png?v=3',
     desc: 'Helm flagship Valiant dengan konstruksi cangkang komposit Forged Carbon dan aksen emas champagne. Dilengkapi dengan visor polikarbonat optik kelas 1 anti-gores, tali Double D-Ring titanium, dan bantalan interior mewah berpori antimikroba.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.250g', shell: 'Forged Carbon', warranty: '5 Tahun' }
   },
@@ -17,7 +17,7 @@ const productsData = {
     title: 'CHROME WITH VISOR PLAIN',
     category: 'Helm Seri Chrome Heritage',
     price: 3250000,
-    img: 'assets/images/chrome-visor.jpg?v=2',
+    img: 'assets/images/chrome-visor.png?v=3',
     desc: 'Finishing cermin chrome elektrolitik dengan lapisan pernis pelindung UV ultra-keras. Menggabungkan gaya retro murni dengan sistem aerodinamis modern berkecepatan tinggi.',
     specs: { cert: 'ECE 22.06 & DOT', weight: '1.300g', shell: 'Fiberglass Tri-Composite', warranty: '3 Tahun' }
   },
@@ -73,13 +73,13 @@ const productsData = {
 
 // --- CART STATE ---
 let cart = [
-  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.jpg?v=2' },
+  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.png?v=3' },
   { id: 'gloves', title: 'SARUNG TANGAN KULIT PRO', price: 850000, qty: 1, img: 'assets/images/gloves.jpg?v=2' }
 ];
 
 // --- MINI HERO STATE ---
 const miniHeroList = [
-  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.jpg?v=2', id: 'chrome-visor' },
+  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.png?v=3', id: 'chrome-visor' },
   { title: 'JET CAMO MLAG', img: 'assets/images/camo-helmet.jpg?v=2', id: 'camo-helmet' },
   { title: 'SCRAMBLER RAW', img: 'assets/images/carbon-scrambler.jpg?v=2', id: 'carbon-scrambler' }
 ];
@@ -106,7 +106,7 @@ let currentCategoryIndex = 0;
 const lineupList = [
   { id: 'carbon-scrambler', name: 'Scrambler', sub: 'Raw Carbon Series', price: 3600000, img: 'assets/images/carbon-scrambler.jpg?v=2' },
   { id: 'camo-helmet', name: 'Jet Camo', sub: 'Stealth Tactical Mlag', price: 2950000, img: 'assets/images/camo-helmet.jpg?v=2' },
-  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.jpg?v=2' },
+  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.png?v=3' },
   { id: 'frontal-white', name: 'Zero', sub: 'Pure Titanium Touring', price: 3100000, img: 'assets/images/frontal-white.jpg?v=2' },
   { id: 'retro-white', name: 'Ball-Re Dot', sub: 'Classic Pearl White', price: 2450000, img: 'assets/images/retro-white.jpg?v=2' }
 ];

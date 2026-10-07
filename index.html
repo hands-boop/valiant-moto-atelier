@@ -501,7 +501,7 @@ img {
   filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 0; background: transparent;
 }
 
 .floating-hero-helmet:hover {
@@ -1683,7 +1683,7 @@ img {
 
         <!-- Center Stage: Floating Helmet with Parallax effect -->
         <div class="hero-center-stage">
-          <img src="assets/images/hero-helmet.jpg?v=2" 
+          <img src="assets/images/hero-helmet.png?v=3" 
                alt="Valiant Jet-X20 Titanium Luxury Helmet" 
                class="floating-hero-helmet" 
                id="heroFloatingHelmet"
@@ -1695,7 +1695,7 @@ img {
           <div class="mini-preview-card">
             <button class="mini-preview-nav" onclick="prevMiniHero()" aria-label="Sebelumnya">&lsaquo;</button>
             <div class="mini-preview-thumb-wrap">
-              <img src="assets/images/chrome-visor.jpg?v=2" 
+              <img src="assets/images/chrome-visor.png?v=3" 
                    alt="VM-500 Chrome Edition" 
                    class="mini-preview-thumb" 
                    id="miniHeroThumb"
@@ -1856,7 +1856,7 @@ img {
 
         <!-- Card 05 -->
         <div class="media-card" onclick="openVideoModal('05 - Perjalanan Tengah Malam Menuju Fajar')">
-          <img src="assets/images/hero-helmet.jpg?v=2" alt="Cerita 05" class="media-card-bg">
+          <img src="assets/images/hero-helmet.png?v=3" alt="Cerita 05" class="media-card-bg">
           <span class="media-number-tag">05</span>
           <div class="media-card-info">Midnight Cruiser</div>
         </div>
@@ -1892,12 +1892,12 @@ img {
           <!-- Item 3: Center Enlarged Hero: Chrome With Visor Plain -->
           <div class="lineup-item active-center" id="lineupCenterItem" onclick="openQuickView('chrome-visor')">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/chrome-visor.jpg?v=2" alt="Chrome With Visor Plain" id="lineupCenterImg">
+              <img src="assets/images/chrome-visor.png?v=3" alt="Chrome With Visor Plain" id="lineupCenterImg">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-big-name" id="lineupCenterTitle">Chrome</div>
             <div class="lineup-sub-name" id="lineupCenterSubtitle">With Visor Plain</div>
-            <button class="btn-lineup-action" onclick="addToCart('Chrome With Visor Plain', 3250000, 'assets/images/chrome-visor.jpg?v=2'); event.stopPropagation();">Beli Sekarang</button>
+            <button class="btn-lineup-action" onclick="addToCart('Chrome With Visor Plain', 3250000, 'assets/images/chrome-visor.png?v=3'); event.stopPropagation();">Beli Sekarang</button>
           </div>
 
           <!-- Item 4: Zero -->
@@ -2087,7 +2087,7 @@ img {
     <div class="modal-box quickview-box">
       <button class="modal-close-btn" onclick="closeQuickView()">&times;</button>
       <div style="display: flex; align-items: center; justify-content: center; background: var(--bg-canvas); border-radius: 8px; padding: 1.5rem; height: 100%;">
-        <img src="assets/images/hero-helmet.jpg?v=2" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
+        <img src="assets/images/hero-helmet.png?v=3" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
       </div>
       <div>
         <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;" id="qvCategory">Koleksi Spesial Atelier</div>
@@ -2148,7 +2148,7 @@ const productsData = {
     title: 'JET-X20 MLAG TITANIUM',
     category: 'Koleksi Flagship Atelier',
     price: 3450000,
-    img: 'assets/images/hero-helmet.jpg?v=2',
+    img: 'assets/images/hero-helmet.png?v=3',
     desc: 'Helm flagship Valiant dengan konstruksi cangkang komposit Forged Carbon dan aksen emas champagne. Dilengkapi dengan visor polikarbonat optik kelas 1 anti-gores, tali Double D-Ring titanium, dan bantalan interior mewah berpori antimikroba.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.250g', shell: 'Forged Carbon', warranty: '5 Tahun' }
   },
@@ -2156,7 +2156,7 @@ const productsData = {
     title: 'CHROME WITH VISOR PLAIN',
     category: 'Helm Seri Chrome Heritage',
     price: 3250000,
-    img: 'assets/images/chrome-visor.jpg?v=2',
+    img: 'assets/images/chrome-visor.png?v=3',
     desc: 'Finishing cermin chrome elektrolitik dengan lapisan pernis pelindung UV ultra-keras. Menggabungkan gaya retro murni dengan sistem aerodinamis modern berkecepatan tinggi.',
     specs: { cert: 'ECE 22.06 & DOT', weight: '1.300g', shell: 'Fiberglass Tri-Composite', warranty: '3 Tahun' }
   },
@@ -2212,13 +2212,13 @@ const productsData = {
 
 // --- CART STATE ---
 let cart = [
-  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.jpg?v=2' },
+  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.png?v=3' },
   { id: 'gloves', title: 'SARUNG TANGAN KULIT PRO', price: 850000, qty: 1, img: 'assets/images/gloves.jpg?v=2' }
 ];
 
 // --- MINI HERO STATE ---
 const miniHeroList = [
-  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.jpg?v=2', id: 'chrome-visor' },
+  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.png?v=3', id: 'chrome-visor' },
   { title: 'JET CAMO MLAG', img: 'assets/images/camo-helmet.jpg?v=2', id: 'camo-helmet' },
   { title: 'SCRAMBLER RAW', img: 'assets/images/carbon-scrambler.jpg?v=2', id: 'carbon-scrambler' }
 ];
@@ -2245,7 +2245,7 @@ let currentCategoryIndex = 0;
 const lineupList = [
   { id: 'carbon-scrambler', name: 'Scrambler', sub: 'Raw Carbon Series', price: 3600000, img: 'assets/images/carbon-scrambler.jpg?v=2' },
   { id: 'camo-helmet', name: 'Jet Camo', sub: 'Stealth Tactical Mlag', price: 2950000, img: 'assets/images/camo-helmet.jpg?v=2' },
-  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.jpg?v=2' },
+  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.png?v=3' },
   { id: 'frontal-white', name: 'Zero', sub: 'Pure Titanium Touring', price: 3100000, img: 'assets/images/frontal-white.jpg?v=2' },
   { id: 'retro-white', name: 'Ball-Re Dot', sub: 'Classic Pearl White', price: 2450000, img: 'assets/images/retro-white.jpg?v=2' }
 ];

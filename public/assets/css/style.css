@@ -477,10 +477,10 @@ img {
 .floating-hero-helmet {
   width: 340px;
   max-width: 100%;
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45));
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
-  border-radius: 20px;
+  background: transparent;
 }
 
 .floating-hero-helmet:hover {
