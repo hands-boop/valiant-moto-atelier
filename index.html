@@ -66,7 +66,7 @@
   --radius-full: 9999px;
   
   /* Stripe Width */
-  --stripe-width: 170px;
+  --stripe-width: 195px;
 }
 
 /* Theme Variations */
@@ -410,14 +410,14 @@ img {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 0.9fr;
+  grid-template-columns: 0.95fr 1.35fr 0.85fr;
   align-items: center;
-  min-height: 480px;
+  min-height: 520px;
 }
 
 /* Left Hero Content */
 .hero-left-content {
-  padding-right: 2rem;
+  padding-right: 1.5rem;
 }
 
 .collection-badge {
@@ -493,19 +493,20 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 5;
+  overflow: visible;
 }
 
 .floating-hero-helmet {
-  width: 480px;
-  max-width: 130%;
-  filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.5));
+  width: 580px;
+  max-width: 155%;
+  filter: drop-shadow(0 35px 50px rgba(0, 0, 0, 0.45));
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
   background: transparent;
 }
 
 .floating-hero-helmet:hover {
-  transform: scale(1.08) translateY(-10px);
+  transform: scale(1.06) translateY(-8px);
 }
 
 /* Right Hero Mini Preview */
@@ -513,7 +514,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 
 .mini-preview-card {
@@ -547,8 +548,8 @@ img {
 }
 
 .mini-preview-thumb {
-  width: 170px;
-  height: 170px;
+  width: 190px;
+  height: 190px;
   object-fit: contain;
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.22));
   transition: transform 0.3s;
@@ -1559,7 +1560,8 @@ img {
   }
   
   .floating-hero-helmet {
-    width: 380px;
+    width: 420px;
+    max-width: 95vw;
   }
   
   .cat-big-name {
@@ -2087,7 +2089,7 @@ img {
     <div class="modal-box quickview-box">
       <button class="modal-close-btn" onclick="closeQuickView()">&times;</button>
       <div style="display: flex; align-items: center; justify-content: center; background: var(--bg-canvas); border-radius: 8px; padding: 1.5rem; height: 100%;">
-        <img src="assets/images/hero-helmet.png?v=3" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
+        <img src="assets/images/hero-helmet.png?v=3" id="qvImg" alt="Detail Produk" style="max-height: 330px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
       </div>
       <div>
         <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;" id="qvCategory">Koleksi Spesial Atelier</div>
