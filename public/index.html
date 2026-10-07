@@ -105,6 +105,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 75px;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden !important;
@@ -153,22 +154,7 @@ img {
   position: relative;
 }
 
-/* Top Utility Bar */
-.top-notice-bar {
-  background: var(--bg-dark);
-  color: var(--text-light-muted);
-  font-size: 0.75rem;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--border-dark);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.top-notice-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* Theme Selector Dots */
 
 .theme-selector-wrap {
   display: flex;
@@ -355,18 +341,43 @@ img {
 .mobile-nav-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease;
+}
+
+.mobile-nav-toggle:active {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .mobile-nav-toggle span {
-  width: 24px;
+  display: block;
+  width: 22px;
   height: 2px;
   background: var(--text-main);
-  transition: 0.3s;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.mobile-nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -578,31 +589,35 @@ img {
 /* Mobile Navigation Drawer Overlay */
 .mobile-nav-menu {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0;
+  width: 100vw;
   height: 100vh;
-  background: rgba(10, 15, 26, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 2000;
+  height: 100dvh;
+  background: rgba(9, 12, 18, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 99999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .mobile-nav-menu.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-menu-inner {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 82%;
+  bottom: 0;
+  width: 85%;
   max-width: 320px;
   height: 100%;
+  height: 100dvh;
   background: #ffffff;
   padding: 1.75rem 1.5rem;
   display: flex;
@@ -610,8 +625,10 @@ img {
   justify-content: space-between;
   transform: translateX(-100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 12px 0 35px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 100000;
 }
 
 .mobile-nav-menu.open .mobile-menu-inner {
@@ -630,14 +647,24 @@ img {
 .mobile-menu-close-btn {
   font-size: 1.8rem;
   line-height: 1;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   color: var(--text-main);
   background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.mobile-menu-close-btn:hover,
+.mobile-menu-close-btn:active {
+  background: rgba(197, 146, 53, 0.15);
+  color: var(--color-primary);
+  transform: rotate(90deg);
 }
 
 .mobile-menu-links {
@@ -656,9 +683,11 @@ img {
   padding: 8px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   transition: var(--transition-smooth);
+  cursor: pointer;
 }
 
 .mobile-menu-link:hover,
+.mobile-menu-link:active,
 .mobile-menu-link.active {
   color: var(--color-primary);
   padding-left: 6px;
@@ -1189,7 +1218,7 @@ img {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1.3fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 2.5rem;
   margin-bottom: 4rem;
 }
@@ -1267,45 +1296,6 @@ img {
   padding-left: 4px;
 }
 
-/* Footer Stamp Graphic Badge */
-.footer-stamp-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.rider-stamp-badge {
-  position: relative;
-  display: inline-block;
-  text-align: right;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-sm);
-}
-
-.stamp-model-text {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 900;
-  line-height: 1;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.stamp-diagonal-tag {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  display: inline-block;
-  transform: rotate(-12deg);
-  margin-top: 4px;
-}
 
 .footer-bottom-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.07);
@@ -1696,31 +1686,6 @@ img {
     padding: 0 12px;
   }
   
-  /* Top Notice Bar Mobile */
-  .top-notice-bar {
-    padding: 6px 10px;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .top-notice-content {
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .notice-text span {
-    font-size: 0.65rem;
-    line-height: 1.35;
-    display: block;
-    letter-spacing: 0.01em;
-  }
-  
-  .theme-selector-wrap {
-    font-size: 0.65rem;
-    justify-content: center;
-  }
   
   /* Navbar Mobile */
   .site-header {
@@ -2103,18 +2068,6 @@ img {
     justify-content: center;
   }
   
-  .footer-stamp-col {
-    grid-column: 1 / -1;
-    align-items: center;
-    text-align: center;
-    margin-top: 0.5rem;
-  }
-  
-  .rider-stamp-badge {
-    text-align: center;
-    margin: 0 auto;
-  }
-  
   .footer-bottom-bar {
     flex-direction: column;
     gap: 0.75rem;
@@ -2151,24 +2104,6 @@ img {
   </style>
 </head>
 <body data-theme="gold">
-
-  <!-- TOP UTILITY / THEME BAR -->
-  <div class="top-notice-bar">
-    <div class="container top-notice-content">
-      <div class="notice-text">
-        <span>Pengiriman Gratis ke Seluruh Indonesia • Garansi Resmi 5 Tahun • Standar ECE 22.06 & SNI</span>
-      </div>
-      <div class="theme-selector-wrap">
-        <span>Aksen Warna:</span>
-        <div class="theme-dots">
-          <button class="theme-dot gold" onclick="switchTheme('gold')" title="Champagne Gold (Default)"></button>
-          <button class="theme-dot emerald" onclick="switchTheme('emerald')" title="Racing Emerald"></button>
-          <button class="theme-dot sapphire" onclick="switchTheme('sapphire')" title="Midnight Sapphire"></button>
-          <button class="theme-dot crimson" onclick="switchTheme('crimson')" title="Rosso Crimson"></button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- SITE HEADER / NAVBAR -->
   <header class="site-header">
@@ -2227,29 +2162,38 @@ img {
         </button>
       </div>
     </div>
+  </header>
 
-    <!-- Mobile Slide-In Menu Overlay -->
-    <div class="mobile-nav-menu" id="mobileNavMenu" onclick="if(event.target===this)closeMobileNav()">
-      <div class="mobile-menu-inner">
-        <div class="mobile-menu-header">
-          <div class="brand-title" style="font-size: 1.15rem;">VALIANT <span>MOTO</span></div>
-          <button class="mobile-menu-close-btn" onclick="closeMobileNav()">&times;</button>
+  <!-- Mobile Slide-In Menu Overlay (Direct child of body to prevent header clipping) -->
+  <div class="mobile-nav-menu" id="mobileNavMenu" onclick="if(event.target===this)closeMobileNav()">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <div class="brand-title" style="font-size: 1.15rem;">VALIANT <span>MOTO</span></div>
+        <button class="mobile-menu-close-btn" onclick="closeMobileNav()" aria-label="Tutup Menu">&times;</button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#beranda" class="mobile-menu-link" onclick="scrollToSection('beranda'); return false;">Beranda</a>
+        <a href="#perusahaan" class="mobile-menu-link" onclick="scrollToSection('perusahaan'); return false;">Perusahaan</a>
+        <a href="#produk" class="mobile-menu-link" onclick="scrollToSection('produk'); return false;">Koleksi Produk</a>
+        <a href="#keamanan" class="mobile-menu-link" onclick="scrollToSection('keamanan'); return false;">Standar Keamanan</a>
+        <a href="#media" class="mobile-menu-link" onclick="scrollToSection('media'); return false;">Dokumentasi Media</a>
+        <a href="#karir" class="mobile-menu-link" onclick="scrollToSection('karir'); return false;">Karir & Mitra</a>
+        <a href="#kontak" class="mobile-menu-link" onclick="scrollToSection('kontak'); return false;">Hubungi Kami</a>
+      </div>
+      <div class="mobile-menu-cta">
+        <div style="margin-bottom: 1rem;">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px;">Pilih Aksen Warna:</div>
+          <div class="theme-dots" style="justify-content: flex-start; gap: 8px;">
+            <button class="theme-dot gold" onclick="switchTheme('gold')" title="Champagne Gold"></button>
+            <button class="theme-dot emerald" onclick="switchTheme('emerald')" title="Racing Emerald"></button>
+            <button class="theme-dot sapphire" onclick="switchTheme('sapphire')" title="Midnight Sapphire"></button>
+            <button class="theme-dot crimson" onclick="switchTheme('crimson')" title="Rosso Crimson"></button>
+          </div>
         </div>
-        <div class="mobile-menu-links">
-          <a href="#beranda" class="mobile-menu-link" onclick="closeMobileNav()">Beranda</a>
-          <a href="#perusahaan" class="mobile-menu-link" onclick="closeMobileNav()">Perusahaan</a>
-          <a href="#produk" class="mobile-menu-link" onclick="closeMobileNav()">Koleksi Produk</a>
-          <a href="#keamanan" class="mobile-menu-link" onclick="closeMobileNav()">Standar Keamanan</a>
-          <a href="#media" class="mobile-menu-link" onclick="closeMobileNav()">Dokumentasi Media</a>
-          <a href="#karir" class="mobile-menu-link" onclick="closeMobileNav()">Karir & Mitra</a>
-          <a href="#kontak" class="mobile-menu-link" onclick="closeMobileNav()">Hubungi Kami</a>
-        </div>
-        <div class="mobile-menu-cta">
-          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileNav(); openDesignModal();">Kirim Desain Kustom</button>
-        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileNav(); openDesignModal();">Kirim Desain Kustom</button>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- MAIN HERO SECTION WITH VERTICAL RACING STRIPE -->
   <section class="hero-wrapper" id="beranda">
@@ -2557,14 +2501,6 @@ img {
             <li><a href="#siaran">Siaran Pers</a></li>
             <li><a href="#karir" onclick="alert('Lowongan Karir Atelier: Silakan kirimkan CV & portofolio ke karir@valiantmoto.id'); return false;">Peluang Karir</a></li>
           </ul>
-        </div>
-
-        <!-- Col 6: Jet Camo / Rider Graphic Stamp -->
-        <div class="footer-stamp-col">
-          <div class="rider-stamp-badge">
-            <div class="stamp-model-text">JET-X20<br>MLAG</div>
-            <div class="stamp-diagonal-tag">RIDER</div>
-          </div>
         </div>
       </div>
 
@@ -3160,27 +3096,58 @@ function handleSearch(query) {
 // --- MOBILE NAVIGATION TOGGLE & DRAWER ---
 function toggleMobileNav() {
   const menu = document.getElementById('mobileNavMenu');
+  const btn = document.getElementById('mobileNavToggleBtn');
   if (menu) {
     const isOpen = menu.classList.toggle('open');
+    if (btn) {
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 }
 
 function closeMobileNav() {
   const menu = document.getElementById('mobileNavMenu');
+  const btn = document.getElementById('mobileNavToggleBtn');
   if (menu) {
     menu.classList.remove('open');
+    if (btn) {
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
     document.body.style.overflow = '';
   }
 }
 
 // --- SMOOTH SCROLL HELPER ---
 function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
-  }
+  closeMobileNav();
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) {
+      const headerHeight = 70;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 60);
 }
+
+// ESC key listener to close open overlays
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeMobileNav();
+    if (typeof closeCartDrawer === 'function') closeCartDrawer();
+    if (typeof closeSearchModal === 'function') closeSearchModal();
+    if (typeof closeDesignModal === 'function') closeDesignModal();
+    if (typeof closeVideoModal === 'function') closeVideoModal();
+    if (typeof closeQuickView === 'function') closeQuickView();
+  }
+});
 
   </script>
 </body>
