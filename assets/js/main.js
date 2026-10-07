@@ -9,7 +9,7 @@ const productsData = {
     title: 'JET-X20 MLAG TITANIUM',
     category: 'Koleksi Flagship Atelier',
     price: 3450000,
-    img: 'assets/images/hero-helmet.jpg',
+    img: 'assets/images/hero-helmet.jpg?v=2',
     desc: 'Helm flagship Valiant dengan konstruksi cangkang komposit Forged Carbon dan aksen emas champagne. Dilengkapi dengan visor polikarbonat optik kelas 1 anti-gores, tali Double D-Ring titanium, dan bantalan interior mewah berpori antimikroba.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.250g', shell: 'Forged Carbon', warranty: '5 Tahun' }
   },
@@ -17,7 +17,7 @@ const productsData = {
     title: 'CHROME WITH VISOR PLAIN',
     category: 'Helm Seri Chrome Heritage',
     price: 3250000,
-    img: 'assets/images/chrome-visor.jpg',
+    img: 'assets/images/chrome-visor.jpg?v=2',
     desc: 'Finishing cermin chrome elektrolitik dengan lapisan pernis pelindung UV ultra-keras. Menggabungkan gaya retro murni dengan sistem aerodinamis modern berkecepatan tinggi.',
     specs: { cert: 'ECE 22.06 & DOT', weight: '1.300g', shell: 'Fiberglass Tri-Composite', warranty: '3 Tahun' }
   },
@@ -25,7 +25,7 @@ const productsData = {
     title: 'SARUNG TANGAN KULIT PRO',
     category: 'Perlengkapan Pelindung Tangan',
     price: 850000,
-    img: 'assets/images/gloves.jpg',
+    img: 'assets/images/gloves.jpg?v=2',
     desc: 'Sarung tangan kulit kambing perforasi dengan pelindung buku jari berbahan serat karbon asli. Mendukung kendali layar sentuh ponsel dan ventilasi sejuk saat berkendara di iklim tropis.',
     specs: { cert: 'CE Level 1 KP', weight: '220g', shell: 'Top Grain Leather & Carbon', warranty: '1 Tahun' }
   },
@@ -33,7 +33,7 @@ const productsData = {
     title: 'CLASSIC JET DUAL-STRIPE',
     category: 'Helm Open Face Klasik',
     price: 2450000,
-    img: 'assets/images/retro-white.jpg',
+    img: 'assets/images/retro-white.jpg?v=2',
     desc: 'Helm open-face berbalut putih mutiara dengan garis balap kembar bernuansa vintage. Didesain untuk kenyamanan berkendara harian di perkotaan dan motor custom klasik.',
     specs: { cert: 'SNI & DOT', weight: '1.150g', shell: 'Multi-Fiber Matrix', warranty: '3 Tahun' }
   },
@@ -41,7 +41,7 @@ const productsData = {
     title: 'AETHER TOURING SERIES',
     category: 'Helm Full Face Aerodinamis',
     price: 3100000,
-    img: 'assets/images/frontal-white.jpg',
+    img: 'assets/images/frontal-white.jpg?v=2',
     desc: 'Desain cangkang aerodinamis yang telah diuji di lorong angin untuk stabilitas maksimal saat melaju cepat. Dilengkapi pelindung dagu kokoh dan sistem sirkulasi udara mutakhir.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.380g', shell: 'Advanced Polycarbonate Shell', warranty: '4 Tahun' }
   },
@@ -49,7 +49,7 @@ const productsData = {
     title: 'VINTAGE SMOKED GOGGLE',
     category: 'Kacamata Pelindung Vintage',
     price: 650000,
-    img: 'assets/images/goggles.jpg',
+    img: 'assets/images/goggles.jpg?v=2',
     desc: 'Kacamata goggle berkontur kulit lembut dengan lensa tahan benturan berwarna asap anti-silau dan lapisan anti-embun permanen.',
     specs: { cert: 'UV400 & ANSI Z87.1', weight: '140g', shell: 'Real Leather & TPU Frame', warranty: '1 Tahun' }
   },
@@ -57,7 +57,7 @@ const productsData = {
     title: 'JET CAMO MLAG STEALTH',
     category: 'Helm Edisi Kamuflase Taktis',
     price: 2950000,
-    img: 'assets/images/camo-helmet.jpg',
+    img: 'assets/images/camo-helmet.jpg?v=2',
     desc: 'Grafis kamuflase geometris berfinishing matte slate dengan visor gelap magnetik, siap melengkapi penampilan pengendara petualang sejati.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.280g', shell: 'Carbon Kevlar Hybrid', warranty: '3 Tahun' }
   },
@@ -65,7 +65,7 @@ const productsData = {
     title: 'SCRAMBLER RAW FORGED CARBON',
     category: 'Helm Seri Scrambler Petualang',
     price: 3600000,
-    img: 'assets/images/carbon-scrambler.jpg',
+    img: 'assets/images/carbon-scrambler.jpg?v=2',
     desc: 'Permukaan serat karbon anyam ekspos tanpa cat dengan pet pelindung matahari yang dapat dilepas pasang dan pengunci kacamata goggle belakang.',
     specs: { cert: 'ECE 22.06 & SNI', weight: '1.180g', shell: 'Pure Forged Carbon Fiber', warranty: '5 Tahun' }
   }
@@ -73,15 +73,15 @@ const productsData = {
 
 // --- CART STATE ---
 let cart = [
-  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.jpg' },
-  { id: 'gloves', title: 'SARUNG TANGAN KULIT PRO', price: 850000, qty: 1, img: 'assets/images/gloves.jpg' }
+  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.jpg?v=2' },
+  { id: 'gloves', title: 'SARUNG TANGAN KULIT PRO', price: 850000, qty: 1, img: 'assets/images/gloves.jpg?v=2' }
 ];
 
 // --- MINI HERO STATE ---
 const miniHeroList = [
-  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.jpg', id: 'chrome-visor' },
-  { title: 'JET CAMO MLAG', img: 'assets/images/camo-helmet.jpg', id: 'camo-helmet' },
-  { title: 'SCRAMBLER RAW', img: 'assets/images/carbon-scrambler.jpg', id: 'carbon-scrambler' }
+  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.jpg?v=2', id: 'chrome-visor' },
+  { title: 'JET CAMO MLAG', img: 'assets/images/camo-helmet.jpg?v=2', id: 'camo-helmet' },
+  { title: 'SCRAMBLER RAW', img: 'assets/images/carbon-scrambler.jpg?v=2', id: 'carbon-scrambler' }
 ];
 let miniHeroIndex = 0;
 
@@ -104,11 +104,11 @@ let currentCategoryIndex = 0;
 
 // --- LINEUP CAROUSEL STATE ---
 const lineupList = [
-  { id: 'carbon-scrambler', name: 'Scrambler', sub: 'Raw Carbon Series', price: 3600000, img: 'assets/images/carbon-scrambler.jpg' },
-  { id: 'camo-helmet', name: 'Jet Camo', sub: 'Stealth Tactical Mlag', price: 2950000, img: 'assets/images/camo-helmet.jpg' },
-  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.jpg' },
-  { id: 'frontal-white', name: 'Zero', sub: 'Pure Titanium Touring', price: 3100000, img: 'assets/images/frontal-white.jpg' },
-  { id: 'retro-white', name: 'Ball-Re Dot', sub: 'Classic Pearl White', price: 2450000, img: 'assets/images/retro-white.jpg' }
+  { id: 'carbon-scrambler', name: 'Scrambler', sub: 'Raw Carbon Series', price: 3600000, img: 'assets/images/carbon-scrambler.jpg?v=2' },
+  { id: 'camo-helmet', name: 'Jet Camo', sub: 'Stealth Tactical Mlag', price: 2950000, img: 'assets/images/camo-helmet.jpg?v=2' },
+  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.jpg?v=2' },
+  { id: 'frontal-white', name: 'Zero', sub: 'Pure Titanium Touring', price: 3100000, img: 'assets/images/frontal-white.jpg?v=2' },
+  { id: 'retro-white', name: 'Ball-Re Dot', sub: 'Classic Pearl White', price: 2450000, img: 'assets/images/retro-white.jpg?v=2' }
 ];
 let activeLineupIndex = 2; // Default centered on Chrome
 
