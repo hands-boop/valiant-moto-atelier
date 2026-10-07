@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALIANT MOTO ATELIER | Perlengkapan & Helm Motor Mewah Modern</title>
+  <meta name="description" content="Valiant Moto Atelier menghadirkan koleksi helm motor modern elegan, sarung tangan kulit premium, dan aksesori berkendara berstandar internasional.">
+  <meta name="keywords" content="helm motor, helm retro, helm open face, aksesori motor, valiant moto, custom helmet indonesia">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VALIANT MOTO ATELIER | Modern Motorcycle Gear">
+  <meta property="og:description" content="Perlengkapan berkendara dan helm kustom berstandar internasional dengan estetika elegan modern.">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,10 90,85 50,70 10,85' fill='%23c59235'/></svg>">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-theme="gold">
+
+  <!-- TOP UTILITY / THEME BAR -->
+  <div class="top-notice-bar">
+    <div class="container top-notice-content">
+      <div class="notice-text">
+        <span>Pengiriman Gratis ke Seluruh Indonesia • Garansi Resmi 5 Tahun • Standar ECE 22.06 & SNI</span>
+      </div>
+      <div class="theme-selector-wrap">
+        <span>Aksen Warna:</span>
+        <div class="theme-dots">
+          <button class="theme-dot gold" onclick="switchTheme('gold')" title="Champagne Gold (Default)"></button>
+          <button class="theme-dot emerald" onclick="switchTheme('emerald')" title="Racing Emerald"></button>
+          <button class="theme-dot sapphire" onclick="switchTheme('sapphire')" title="Midnight Sapphire"></button>
+          <button class="theme-dot crimson" onclick="switchTheme('crimson')" title="Rosso Crimson"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Left Navigation -->
+      <nav class="nav-left">
+        <a href="#beranda" class="nav-link active">Beranda</a>
+        <a href="#perusahaan" class="nav-link">Perusahaan</a>
+        <a href="#produk" class="nav-link">Produk</a>
+        <a href="#keamanan" class="nav-link">Keamanan</a>
+      </nav>
+
+      <!-- Center Brand Logo -->
+      <a href="#beranda" class="brand-center">
+        <div class="brand-crest">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="currentColor">
+            <path d="M14 0L19.5 8H8.5L14 0Z"/>
+            <path d="M0 9L11 9L14 22L7 16L0 9Z" opacity="0.85"/>
+            <path d="M28 9L17 9L14 22L21 16L28 9Z" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="brand-title">VALIANT <span>MOTO</span></div>
+        <div class="brand-subtitle">ATELIER INDONESIA</div>
+      </a>
+
+      <!-- Right Navigation & Actions -->
+      <div class="nav-right">
+        <a href="#media" class="nav-link">Media</a>
+        <a href="#karir" class="nav-link">Karir</a>
+        <a href="#kontak" class="nav-link">Kontak Kami</a>
+        
+        <div class="header-actions">
+          <button class="icon-btn" onclick="openSearchModal()" title="Cari Produk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          
+          <button class="icon-btn" onclick="openCartDrawer()" title="Keranjang Belanja">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-7z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge" id="cartCountBadge">2</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Buka Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION WITH VERTICAL RACING STRIPE -->
+  <section class="hero-wrapper" id="beranda">
+    <!-- Signature Vertical Racing Stripe -->
+    <div class="hero-vertical-stripe"></div>
+
+    <div class="container hero-top-section">
+      <div class="hero-grid">
+        <!-- Left Content -->
+        <div class="hero-left-content">
+          <div class="collection-badge">
+            <span class="collection-badge-dot"></span>
+            <span>Koleksi Musim 2026</span>
+          </div>
+          <div class="hero-tagline">Memperkenalkan Seri Terbaru</div>
+          <h1 class="hero-main-title">JET-X20<br>MLAG</h1>
+          <button class="btn-primary" onclick="openQuickView('hero-helmet')">Pelajari Lebih Lanjut</button>
+        </div>
+
+        <!-- Center Stage: Floating Helmet with Parallax effect -->
+        <div class="hero-center-stage">
+          <img src="assets/images/hero-helmet.jpg" 
+               alt="Valiant Jet-X20 Titanium Luxury Helmet" 
+               class="floating-hero-helmet" 
+               id="heroFloatingHelmet"
+               onclick="openQuickView('hero-helmet')">
+        </div>
+
+        <!-- Right Content: Mini Carousel Showcase -->
+        <div class="hero-right-content">
+          <div class="mini-preview-card">
+            <button class="mini-preview-nav" onclick="prevMiniHero()" aria-label="Sebelumnya">&lsaquo;</button>
+            <div class="mini-preview-thumb-wrap">
+              <img src="assets/images/chrome-visor.jpg" 
+                   alt="VM-500 Chrome Edition" 
+                   class="mini-preview-thumb" 
+                   id="miniHeroThumb"
+                   onclick="openQuickView('chrome-visor')">
+              <div class="mini-preview-title" id="miniHeroTitle">VM-500 CHROME</div>
+            </div>
+            <button class="mini-preview-nav" onclick="nextMiniHero()" aria-label="Selanjutnya">&rsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Axis with nodes across the vertical stripe -->
+      <div class="timeline-axis-wrap">
+        <div class="timeline-axis-line">
+          <span class="timeline-node"></span>
+          <span class="timeline-node"></span>
+          <span class="timeline-node"></span>
+          <span class="timeline-node center-active" title="Fokus Utama"></span>
+          <span class="timeline-node"></span>
+          <span class="timeline-node"></span>
+          <span class="timeline-node"></span>
+        </div>
+      </div>
+
+      <!-- WELCOME & SHARE YOUR DESIGN SECTION (SPLIT WITH RIDER PEDESTAL) -->
+      <div class="story-split-section" id="perusahaan">
+        <div class="story-split-grid">
+          <!-- Left Column: Welcome Story -->
+          <div class="story-col-left">
+            <div class="story-subtitle">Selamat Datang di</div>
+            <h2 class="story-title">Valiant Moto Accessories Ltd.</h2>
+            <p class="story-desc">
+              Valiant Moto Accessories Ltd. adalah pelopor helm dan perlengkapan pengendara roda dua berstandar dunia di Indonesia. Ragam produk kami mencakup Helm Seri Jet berpresisi tinggi, jaket kulit protektif, dan aksesori ikonik dengan reputasi global di lebih dari 35 negara.
+            </p>
+            <button class="btn-story-red" onclick="scrollToSection('produk')">Baca Selengkapnya</button>
+          </div>
+
+          <!-- Center Column: Standing Rider with Bike on Pedestal -->
+          <div class="story-col-center">
+            <img src="assets/images/rider-pedestal.jpg" 
+                 alt="Pengendara Valiant Moto Bersama Sepeda Motor Scrambler di Atas Batu" 
+                 class="rider-pedestal-img"
+                 title="Valiant Moto Rider Lifestyle">
+          </div>
+
+          <!-- Right Column: Share Your Design -->
+          <div class="story-col-right">
+            <div class="story-subtitle">Ekspresikan Karakter</div>
+            <h2 class="story-title">Bagikan Desain Anda</h2>
+            <p class="story-desc">
+              Kirimkan konsep grafis atau stiker orisinal Anda untuk helm Valiant. Jika karya Anda disetujui tim desainer kami, Anda akan menerima satu unit helm kustom bertanda tangan Anda secara gratis yang diantar langsung ke depan pintu rumah Anda.
+            </p>
+            <button class="btn-story-red" onclick="openDesignModal()">Kirim Desain</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES SECTION -->
+  <section class="categories-section" id="produk">
+    <div class="container">
+      <div class="cat-header-top">
+        <div class="cat-top-label">Kategori Pilihan</div>
+      </div>
+
+      <div class="cat-headline-split">
+        <div class="cat-title-control">
+          <button class="cat-arrow-btn" onclick="prevCategory()" aria-label="Kategori Sebelumnya">&lsaquo;</button>
+          <h2 class="cat-big-name" id="categoryTitleText">HELM OPEN FACE</h2>
+          <button class="cat-arrow-btn" onclick="nextCategory()" aria-label="Kategori Selanjutnya">&rsaquo;</button>
+        </div>
+        <p class="cat-desc-right" id="categoryDescText">
+          Valiant Moto Accessories Ltd. merupakan salah satu produsen helm dan perlengkapan motor terkemuka. Dirancang dengan presisi aerodinamis tinggi, bantalan interior berpori antibakteri, dan cangkang komposit serat tangguh untuk kenyamanan mobilitas harian maupun touring antar pulau.
+        </p>
+      </div>
+
+      <!-- 4 Category Items Row -->
+      <div class="cat-products-grid">
+        <!-- Item 1: Gloves -->
+        <div class="cat-product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/gloves.jpg" alt="Sarung Tangan Kulit Pro Perforated">
+          </div>
+          <h3 class="cat-product-title">Sarung Tangan Kulit Pro</h3>
+          <div class="cat-product-price">Rp 850.000</div>
+          <button class="cat-product-btn" onclick="openQuickView('gloves')">Detail & Pesan</button>
+        </div>
+
+        <!-- Item 2: Retro White Helmet -->
+        <div class="cat-product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/retro-white.jpg" alt="Helm Open Face Dual Racing Stripe">
+          </div>
+          <h3 class="cat-product-title">Classic Jet Dual-Stripe</h3>
+          <div class="cat-product-price">Rp 2.450.000</div>
+          <button class="cat-product-btn" onclick="openQuickView('retro-white')">Detail & Pesan</button>
+        </div>
+
+        <!-- Item 3: Frontal White Visor Helmet -->
+        <div class="cat-product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/frontal-white.jpg" alt="Helm Aether Full-Visor Touring">
+          </div>
+          <h3 class="cat-product-title">Aether Touring Series</h3>
+          <div class="cat-product-price">Rp 3.100.000</div>
+          <button class="cat-product-btn" onclick="openQuickView('frontal-white')">Detail & Pesan</button>
+        </div>
+
+        <!-- Item 4: Vintage Goggles -->
+        <div class="cat-product-card">
+          <div class="product-img-wrap">
+            <img src="assets/images/goggles.jpg" alt="Kacamata Goggle Vintage Smoked">
+          </div>
+          <h3 class="cat-product-title">Vintage Smoked Goggle</h3>
+          <div class="cat-product-price">Rp 650.000</div>
+          <button class="cat-product-btn" onclick="openQuickView('goggles')">Detail & Pesan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA / VIDEO / STORY GALLERY STRIP (DARK BANNER) -->
+  <section class="media-story-strip" id="media">
+    <div class="container">
+      <div class="media-cards-row">
+        <!-- Card 01 -->
+        <div class="media-card" onclick="openVideoModal('01 - Kilas Cahaya Malam: Penjelajahan Kota')">
+          <img src="assets/images/camo-helmet.jpg" alt="Cerita 01" class="media-card-bg">
+          <span class="media-number-tag">01</span>
+          <div class="media-card-info">Night Cruise Heritage</div>
+        </div>
+
+        <!-- Card 02 -->
+        <div class="media-card" onclick="openVideoModal('02 - Keterampilan Tangan Atelier & Komposit Karbon')">
+          <img src="assets/images/carbon-scrambler.jpg" alt="Cerita 02" class="media-card-bg">
+          <span class="media-number-tag">02</span>
+          <div class="media-card-info">Atelier Craftsmanship</div>
+        </div>
+
+        <!-- Card 03 (FEATURED WITH ACCENT BORDER & PLAY BUTTON) -->
+        <div class="media-card featured-media-card" onclick="openVideoModal('03 - Ekspedisi Lintas Jawa: Jejak Tanah & Kebebasan')">
+          <img src="assets/images/media-action.jpg" alt="Dokumenter Utama 03" class="media-card-bg">
+          <button class="play-video-btn" aria-label="Putar Video Cerita">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+          <div class="media-card-info" style="opacity: 1;">Sorotan Utama • Putar Video</div>
+        </div>
+
+        <!-- Card 04 -->
+        <div class="media-card" onclick="openVideoModal('04 - Menembus Lembah & Kabut Dataran Tinggi')">
+          <img src="assets/images/retro-white.jpg" alt="Cerita 04" class="media-card-bg">
+          <span class="media-number-tag">04</span>
+          <div class="media-card-info">Alpine Pass Tour</div>
+        </div>
+
+        <!-- Card 05 -->
+        <div class="media-card" onclick="openVideoModal('05 - Perjalanan Tengah Malam Menuju Fajar')">
+          <img src="assets/images/hero-helmet.jpg" alt="Cerita 05" class="media-card-bg">
+          <span class="media-number-tag">05</span>
+          <div class="media-card-info">Midnight Cruiser</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED HELMETS BOTTOM LINEUP CAROUSEL -->
+  <section class="featured-helmets-section" id="keamanan">
+    <div class="container">
+      <div class="lineup-carousel-wrapper">
+        <button class="lineup-arrow" onclick="rotateLineup(-1)" aria-label="Sebelumnya">&lsaquo;</button>
+
+        <div class="lineup-items-track" id="lineupTrack">
+          <!-- Item 1: Scrambler -->
+          <div class="lineup-item" onclick="selectLineup(0)">
+            <div class="lineup-thumb-wrap">
+              <img src="assets/images/carbon-scrambler.jpg" alt="Scrambler Raw">
+            </div>
+            <div class="lineup-indicator-tick"></div>
+            <div class="lineup-title">Scrambler</div>
+          </div>
+
+          <!-- Item 2: Jet Camo Mlag -->
+          <div class="lineup-item" onclick="selectLineup(1)">
+            <div class="lineup-thumb-wrap">
+              <img src="assets/images/camo-helmet.jpg" alt="Jet Camo Mlag">
+            </div>
+            <div class="lineup-indicator-tick"></div>
+            <div class="lineup-title">Jet Camo Mlag</div>
+          </div>
+
+          <!-- Item 3: Center Enlarged Hero: Chrome With Visor Plain -->
+          <div class="lineup-item active-center" id="lineupCenterItem" onclick="openQuickView('chrome-visor')">
+            <div class="lineup-thumb-wrap">
+              <img src="assets/images/chrome-visor.jpg" alt="Chrome With Visor Plain" id="lineupCenterImg">
+            </div>
+            <div class="lineup-indicator-tick"></div>
+            <div class="lineup-big-name" id="lineupCenterTitle">Chrome</div>
+            <div class="lineup-sub-name" id="lineupCenterSubtitle">With Visor Plain</div>
+            <button class="btn-lineup-action" onclick="addToCart('Chrome With Visor Plain', 3250000, 'assets/images/chrome-visor.jpg'); event.stopPropagation();">Beli Sekarang</button>
+          </div>
+
+          <!-- Item 4: Zero -->
+          <div class="lineup-item" onclick="selectLineup(3)">
+            <div class="lineup-thumb-wrap">
+              <img src="assets/images/frontal-white.jpg" alt="Zero Helmet">
+            </div>
+            <div class="lineup-indicator-tick"></div>
+            <div class="lineup-title">Zero</div>
+          </div>
+
+          <!-- Item 5: Ball Re Dot -->
+          <div class="lineup-item" onclick="selectLineup(4)">
+            <div class="lineup-thumb-wrap">
+              <img src="assets/images/retro-white.jpg" alt="Ball Re Dot">
+            </div>
+            <div class="lineup-indicator-tick"></div>
+            <div class="lineup-title">Ball-Re Dot</div>
+          </div>
+        </div>
+
+        <button class="lineup-arrow" onclick="rotateLineup(1)" aria-label="Selanjutnya">&rsaquo;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION (IDENTICAL TO ORIGINAL WITH LOGO, 4 COLUMNS, AND RIDER STAMP) -->
+  <footer class="site-footer" id="kontak">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-title">VALIANT <span>MOTO</span></div>
+          <div class="footer-legal-name">Valiant Moto Accessories Ltd.</div>
+          <div class="footer-social-links">
+            <a href="#" class="footer-social-link" title="Instagram">IG</a>
+            <a href="#" class="footer-social-link" title="YouTube">YT</a>
+            <a href="#" class="footer-social-link" title="Twitter / X">X</a>
+            <a href="#" class="footer-social-link" title="TikTok">TK</a>
+          </div>
+        </div>
+
+        <!-- Col 2: General / Umum -->
+        <div class="footer-col">
+          <div class="footer-col-title">Umum</div>
+          <ul class="footer-nav-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#kontak">Kontak Kami</a></li>
+            <li><a href="#privasi" onclick="alert('Kebijakan Privasi: Kami menjaga privasi dan keamanan data seluruh pengendara dengan enkripsi standar industri.'); return false;">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Corporate / Korporat -->
+        <div class="footer-col">
+          <div class="footer-col-title">Korporat</div>
+          <ul class="footer-nav-list">
+            <li><a href="#profil">Profil Perusahaan</a></li>
+            <li><a href="#visi">Pernyataan Misi</a></li>
+            <li><a href="#manajemen">Tim Manajemen</a></li>
+            <li><a href="#infrastruktur">Infrastruktur & Uji</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Products / Produk -->
+        <div class="footer-col">
+          <div class="footer-col-title">Produk</div>
+          <ul class="footer-nav-list">
+            <li><a href="#helm">Helm Seri Jet</a></li>
+            <li><a href="#kacamata">Kacamata Goggle</a></li>
+            <li><a href="#sarungtangan">Sarung Tangan Kulit</a></li>
+            <li><a href="#jaket">Perlengkapan Turing</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Media -->
+        <div class="footer-col" id="karir">
+          <div class="footer-col-title">Media</div>
+          <ul class="footer-nav-list">
+            <li><a href="#media">Video Dokumenter</a></li>
+            <li><a href="#galeri">Galeri Foto</a></li>
+            <li><a href="#siaran">Siaran Pers</a></li>
+            <li><a href="#karir" onclick="alert('Lowongan Karir Atelier: Silakan kirimkan CV & portofolio ke karir@valiantmoto.id'); return false;">Peluang Karir</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 6: Jet Camo / Rider Graphic Stamp -->
+        <div class="footer-stamp-col">
+          <div class="rider-stamp-badge">
+            <div class="stamp-model-text">JET-X20<br>MLAG</div>
+            <div class="stamp-diagonal-tag">RIDER</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="footer-bottom-bar">
+        Copyright © 2026 Valiant Moto Accessories Ltd. Seluruh hak cipta dilindungi undang-undang.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       INTERACTIVE MODALS
+       ========================================================================== -->
+
+  <!-- Modal 1: Kirim Desain Anda (Custom Design Submission) -->
+  <div class="modal-overlay" id="designModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeDesignModal()">&times;</button>
+      <h3 class="modal-title">Kirimkan Desain Grafis Anda</h3>
+      <p class="modal-subtitle">Karya terbaik akan diproduksi menjadi helm edisi khusus dan dikirimkan gratis ke alamat Anda.</p>
+      
+      <form id="designForm" onsubmit="submitDesignForm(event)">
+        <div class="form-group">
+          <label class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-input" placeholder="Masukkan nama Anda" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Nomor WhatsApp / Email</label>
+          <input type="text" class="form-input" placeholder="Contoh: 08123456789 atau nama@email.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Konsep & Cerita Desain</label>
+          <textarea class="form-textarea" rows="3" placeholder="Ceritakan inspirasi filosofi grafis helm Anda..."></textarea>
+        </div>
+        
+        <div class="file-upload-dropzone" onclick="document.getElementById('fileDesign').click()">
+          <input type="file" id="fileDesign" style="display: none;" accept="image/*,.pdf,.ai,.psd" onchange="handleFileSelected(event)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto 8px; color: var(--color-primary);">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <div style="font-weight: 700; font-size: 0.85rem;" id="fileNameDisplay">Klik untuk unggah sketsa / desain (PNG, JPG, PDF)</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Ukuran berkas maks. 25 MB</div>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 100%;">Kirim Desain Sekarang</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Pemutar Video Kisah Ekspedisi -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-box" style="max-width: 720px; background: #000; color: #fff; padding: 1.5rem;">
+      <button class="modal-close-btn" style="background: rgba(255,255,255,0.2); color: #fff;" onclick="closeVideoModal()">&times;</button>
+      <div style="position: relative; width: 100%; padding-top: 56.25%; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
+        <img src="assets/images/media-action.jpg" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover;" alt="Pratinjau Video">
+        <div style="position: absolute; inset:0; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div class="play-video-btn" style="width: 72px; height: 72px; background: var(--color-primary); border: none;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+          <div style="margin-top: 1rem; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;" id="videoModalTitleText">
+            Ekspedisi Lintas Jawa: Jejak Tanah & Kebebasan
+          </div>
+          <div style="font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 4px;">Durasi: 4:32 • 4K HDR Audio DTS</div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8rem; color: #aaa;">Valiant Media Cinematic Series 2026</span>
+        <button class="btn-primary" style="padding: 6px 18px; font-size: 0.75rem;" onclick="alert('Memulai simulasi streaming 4K...');">Tonton Penuh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Pencarian Produk Cepat -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-box" style="max-width: 540px;">
+      <button class="modal-close-btn" onclick="closeSearchModal()">&times;</button>
+      <h3 class="modal-title">Cari Katalog Perlengkapan</h3>
+      <div class="form-group" style="margin-top: 1rem;">
+        <input type="text" class="form-input" id="searchInput" placeholder="Ketik kata kunci: Jet-X, Chrome, Sarung Tangan..." oninput="handleSearch(this.value)">
+      </div>
+      <div id="searchResultsList" style="max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; margin-top: 1rem;">
+        <!-- Hasil pencarian dinamis -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Quick View & Spesifikasi Teknis -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-box quickview-box">
+      <button class="modal-close-btn" onclick="closeQuickView()">&times;</button>
+      <div style="display: flex; align-items: center; justify-content: center; background: var(--bg-canvas); border-radius: 8px; padding: 1.5rem; height: 100%;">
+        <img src="assets/images/hero-helmet.jpg" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;" id="qvCategory">Koleksi Spesial Atelier</div>
+        <h3 class="modal-title" style="margin-top: 4px; margin-bottom: 0.5rem;" id="qvTitle">JET-X20 TITANIUM</h3>
+        <div style="font-size: 1.4rem; font-weight: 900; color: var(--color-primary); margin-bottom: 1rem;" id="qvPrice">Rp 3.450.000</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;" id="qvDesc">
+          Helm seri premium dengan struktur cangkang serat komposit berkepadatan ganda. Dilengkapi bantalan interior kulit Alcantara lembut, tali pengikat Double D-Ring titanium, dan pelindung anti-UV 400.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.5rem; font-size: 0.75rem;">
+          <div style="background: var(--bg-canvas); padding: 8px 10px; border-radius: 4px;"><strong>Sertifikasi:</strong> ECE 22.06 & SNI</div>
+          <div style="background: var(--bg-canvas); padding: 8px 10px; border-radius: 4px;"><strong>Bobot:</strong> 1.250 ± 50 gram</div>
+          <div style="background: var(--bg-canvas); padding: 8px 10px; border-radius: 4px;"><strong>Bahan Cangkang:</strong> Forged Carbon</div>
+          <div style="background: var(--bg-canvas); padding: 8px 10px; border-radius: 4px;"><strong>Garansi:</strong> 5 Tahun Resmi</div>
+        </div>
+
+        <button class="btn-primary" style="width: 100%;" id="qvBuyBtn" onclick="handleQuickViewAddToCart()">Beli Sekarang / Masukkan Keranjang</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE-OUT CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 800;">KERANJANG PESANAN</h3>
+      <button onclick="closeCartDrawer()" style="font-size: 1.4rem; color: var(--text-muted);">&times;</button>
+    </div>
+    
+    <div class="cart-drawer-items" id="cartItemsContainer">
+      <!-- Items generated by JS -->
+    </div>
+    
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotalText">Rp 5.700.000</span>
+      </div>
+      <button class="btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+      <div style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 8px;">
+        Layanan Pelanggan Resmi 24 Jam • Pengiriman Aman Berasuransi
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
