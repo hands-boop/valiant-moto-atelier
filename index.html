@@ -16,7 +16,1574 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,10 90,85 50,70 10,85' fill='%23c59235'/></svg>">
   
   <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+/* ==========================================================================
+   VALIANT MOTO ATELIER - PREMIUM AUTOMOTIVE DESIGN SYSTEM
+   Modern, Elegant & Bespoke Motorcycle Lifestyle
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Primary Signature Accent: Champagne Bronze / Imperial Gold */
+  --color-primary: #c59235;
+  --color-primary-light: #dfb153;
+  --color-primary-dark: #976b1b;
+  --color-primary-glow: rgba(197, 146, 53, 0.35);
+  --color-stripe-gradient: linear-gradient(180deg, #b8860b 0%, #d4af37 35%, #c59235 70%, #8f6214 100%);
+  
+  /* Contrast Neutrals */
+  --bg-canvas: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-dark: #090c12;
+  --bg-dark-surface: #121722;
+  --bg-dark-elevated: #1a2232;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --text-light-muted: #94a3b8;
+  
+  --border-light: rgba(15, 23, 42, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(197, 146, 53, 0.4);
+
+  /* Fonts */
+  --font-display: 'Outfit', sans-serif;
+  --font-brand: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Shadow & Transitions */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 25px var(--color-primary-glow);
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+  
+  /* Stripe Width */
+  --stripe-width: 140px;
+}
+
+/* Theme Variations */
+[data-theme="emerald"] {
+  --color-primary: #10b981;
+  --color-primary-light: #34d399;
+  --color-primary-dark: #047857;
+  --color-primary-glow: rgba(16, 185, 129, 0.35);
+  --color-stripe-gradient: linear-gradient(180deg, #059669 0%, #10b981 40%, #047857 100%);
+}
+
+[data-theme="sapphire"] {
+  --color-primary: #0284c7;
+  --color-primary-light: #38bdf8;
+  --color-primary-dark: #0369a1;
+  --color-primary-glow: rgba(2, 132, 199, 0.35);
+  --color-stripe-gradient: linear-gradient(180deg, #0284c7 0%, #38bdf8 45%, #075985 100%);
+}
+
+[data-theme="crimson"] {
+  --color-primary: #e11d48;
+  --color-primary-light: #fb7185;
+  --color-primary-dark: #9f1239;
+  --color-primary-glow: rgba(225, 29, 72, 0.35);
+  --color-stripe-gradient: linear-gradient(180deg, #be123c 0%, #e11d48 40%, #881337 100%);
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* Top Utility Bar */
+.top-notice-bar {
+  background: var(--bg-dark);
+  color: var(--text-light-muted);
+  font-size: 0.75rem;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.top-notice-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.theme-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.theme-dot:hover {
+  transform: scale(1.2);
+}
+
+.theme-dot.gold { background: #d4af37; }
+.theme-dot.emerald { background: #10b981; }
+.theme-dot.sapphire { background: #0284c7; }
+.theme-dot.crimson { background: #e11d48; }
+
+/* ==========================================================================
+   HEADER / NAVBAR (IDENTICAL STRUCTURE WITH CENTER BRAND)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 84px;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Center Brand Logo */
+.brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.brand-crest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  color: var(--color-primary);
+}
+
+.brand-title {
+  font-family: var(--font-brand);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  color: var(--text-main);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-title span {
+  color: var(--color-primary);
+}
+
+.brand-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* Header Action Icons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.04);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.icon-btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.mobile-nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-main);
+  transition: 0.3s;
+}
+
+/* ==========================================================================
+   VERTICAL RACING STRIPE SYSTEM (SIGNATURE HERO DESIGN)
+   ========================================================================== */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f1f3f7 0%, #ffffff 50%, #f6f7fb 100%);
+  padding-bottom: 5rem;
+}
+
+/* The vertical signature racing stripe */
+.hero-vertical-stripe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--stripe-width);
+  height: 100%;
+  background: var(--color-stripe-gradient);
+  z-index: 1;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 0, 0, 0.04);
+}
+
+.hero-vertical-stripe::before,
+.hero-vertical-stripe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-vertical-stripe::before { left: 8px; }
+.hero-vertical-stripe::after { right: 8px; }
+
+/* ==========================================================================
+   HERO TOP SHOWCASE SECTION
+   ========================================================================== */
+.hero-top-section {
+  position: relative;
+  z-index: 2;
+  padding-top: 3.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr;
+  align-items: center;
+  min-height: 480px;
+}
+
+/* Left Hero Content */
+.hero-left-content {
+  padding-right: 2rem;
+}
+
+.collection-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+.collection-badge-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(var(--color-primary), var(--color-primary) 2px, transparent 3px, transparent 4px);
+  border: 1px solid var(--color-primary);
+  display: inline-block;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-main-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 1.8rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px var(--color-primary-glow);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px var(--color-primary-glow);
+}
+
+/* Center Helmet Stage */
+.hero-center-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.floating-hero-helmet {
+  width: 340px;
+  max-width: 100%;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.35));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.floating-hero-helmet:hover {
+  transform: scale(1.05) translateY(-8px);
+}
+
+/* Right Hero Mini Preview */
+.hero-right-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.mini-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mini-preview-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+}
+
+.mini-preview-nav:hover {
+  color: var(--color-primary);
+  transform: scale(1.15);
+}
+
+.mini-preview-thumb-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mini-preview-thumb {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s;
+}
+
+.mini-preview-thumb:hover {
+  transform: scale(1.08);
+}
+
+.mini-preview-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-top: 0.5rem;
+}
+
+/* Horizontal Timeline Axis across the vertical stripe */
+.timeline-axis-wrap {
+  position: relative;
+  z-index: 3;
+  margin: 3.5rem 0 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeline-axis-line {
+  width: 320px;
+  height: 2px;
+  background: rgba(15, 23, 42, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-node {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-main);
+}
+
+.timeline-node.center-active {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border: 4px solid var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary);
+}
+
+/* ==========================================================================
+   WELCOME & SHARE YOUR DESIGN SECTION (SPLIT WITH RIDER PEDESTAL)
+   ========================================================================== */
+.story-split-section {
+  position: relative;
+  z-index: 4;
+  padding: 1rem 0 3rem;
+}
+
+.story-split-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr 1.1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Left Story Column */
+.story-col-left {
+  text-align: left;
+}
+
+.story-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.story-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.story-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.6rem;
+}
+
+.btn-story-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-story-red:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Center Rider Pedestal Column */
+.story-col-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.rider-pedestal-img {
+  width: 100%;
+  max-width: 580px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+  transition: transform 0.4s ease;
+  border-radius: 12px;
+}
+
+.rider-pedestal-img:hover {
+  transform: scale(1.02);
+}
+
+/* Right Story Column */
+.story-col-right {
+  text-align: right;
+}
+
+.story-col-right .story-subtitle {
+  text-align: right;
+}
+
+.story-col-right .story-title {
+  text-align: right;
+}
+
+.story-col-right .story-desc {
+  text-align: right;
+}
+
+/* ==========================================================================
+   PRODUCT CATEGORIES SECTION
+   ========================================================================== */
+.categories-section {
+  padding: 5rem 0 6rem;
+  background: #ffffff;
+  position: relative;
+  border-top: 1px solid var(--border-light);
+}
+
+.cat-header-top {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cat-top-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  text-transform: capitalize;
+}
+
+.cat-headline-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.cat-title-control {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cat-arrow-btn {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-arrow-btn:hover {
+  color: var(--color-primary);
+  transform: scale(1.15);
+}
+
+.cat-big-name {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.cat-desc-right {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Category 4 Products Row */
+.cat-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.cat-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.cat-product-card:hover {
+  transform: translateY(-8px);
+}
+
+.cat-product-card .product-img-wrap {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.cat-product-card img {
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.08));
+}
+
+.cat-product-card:hover img {
+  transform: scale(1.08);
+}
+
+.cat-product-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.cat-product-price {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+
+.cat-product-btn {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+}
+
+.cat-product-card:hover .cat-product-btn {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   MEDIA / VIDEO / STORY GALLERY STRIP (DARK BANNER)
+   ========================================================================== */
+.media-story-strip {
+  background: var(--bg-dark);
+  color: #ffffff;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-cards-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.media-card {
+  position: relative;
+  height: 200px;
+  background: var(--bg-dark-surface);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: grayscale(40%);
+  transition: var(--transition-smooth);
+}
+
+.media-card:hover .media-card-bg {
+  opacity: 0.8;
+  transform: scale(1.08);
+  filter: grayscale(0%);
+}
+
+.media-number-tag {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.media-card-info {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  font-size: 0.7rem;
+  color: var(--text-light-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.media-card:hover .media-card-info {
+  opacity: 1;
+}
+
+/* Featured Media Card (03 with Red/Accent Border & Play Button) */
+.media-card.featured-media-card {
+  height: 230px;
+  border: 4px solid var(--color-primary);
+  box-shadow: 0 0 35px var(--color-primary-glow);
+  transform: scale(1.04);
+}
+
+.media-card.featured-media-card .media-card-bg {
+  opacity: 0.85;
+  filter: grayscale(0%);
+}
+
+.play-video-btn {
+  position: relative;
+  z-index: 3;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.play-video-btn svg {
+  margin-left: 3px;
+}
+
+.media-card.featured-media-card:hover .play-video-btn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
+   BOTTOM FEATURED HELMETS CAROUSEL LINEUP
+   ========================================================================== */
+.featured-helmets-section {
+  padding: 6rem 0 7rem;
+  background: #ffffff;
+  position: relative;
+}
+
+.lineup-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.lineup-arrow {
+  font-size: 2.2rem;
+  color: var(--text-main);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.lineup-arrow:hover {
+  color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.lineup-items-track {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3rem;
+  flex: 1;
+}
+
+.lineup-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 140px;
+  opacity: 0.65;
+}
+
+.lineup-item:hover {
+  opacity: 0.95;
+  transform: translateY(-5px);
+}
+
+.lineup-thumb-wrap {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.lineup-thumb-wrap img {
+  max-height: 110px;
+  object-fit: contain;
+  transition: transform 0.3s;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+.lineup-indicator-tick {
+  width: 2px;
+  height: 12px;
+  background: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.lineup-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--text-main);
+}
+
+/* Featured Center Highlight Helmet */
+.lineup-item.active-center {
+  width: 240px;
+  opacity: 1;
+  transform: translateY(-15px);
+}
+
+.lineup-item.active-center .lineup-thumb-wrap {
+  width: 230px;
+  height: 230px;
+}
+
+.lineup-item.active-center .lineup-thumb-wrap img {
+  max-height: 220px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.22));
+}
+
+.lineup-item.active-center .lineup-indicator-tick {
+  width: 3px;
+  height: 18px;
+  background: var(--color-primary);
+}
+
+.lineup-item.active-center .lineup-big-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.lineup-item.active-center .lineup-sub-name {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.btn-lineup-action {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-lineup-action:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOTER (IDENTICAL LAYOUT WITH LOGO, 4 COLUMNS & GRAPHIC STAMP)
+   ========================================================================== */
+.site-footer {
+  background: var(--bg-dark);
+  color: var(--text-light-muted);
+  padding: 5rem 0 2.5rem;
+  border-top: 1px solid var(--border-dark);
+  position: relative;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1.3fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-col {
+  padding-right: 1.5rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-brand);
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.footer-brand-title span {
+  color: var(--color-primary);
+}
+
+.footer-legal-name {
+  font-size: 0.75rem;
+  color: var(--text-light-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-dark-surface);
+  color: var(--text-light-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.footer-social-link:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-nav-list a {
+  font-size: 0.8rem;
+  color: var(--text-light-muted);
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-primary);
+  padding-left: 4px;
+}
+
+/* Footer Stamp Graphic Badge */
+.footer-stamp-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.rider-stamp-badge {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+}
+
+.stamp-model-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stamp-diagonal-tag {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: inline-block;
+  transform: rotate(-12deg);
+  margin-top: 4px;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   MODALS & DRAWERS (INTERACTIVE ENHANCEMENTS)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: var(--transition-smooth);
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-close-btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.8rem;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: var(--bg-canvas);
+  transition: border 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  background: #fff;
+}
+
+.file-upload-dropzone {
+  border: 2px dashed var(--border-accent);
+  background: rgba(197, 146, 53, 0.03);
+  padding: 1.75rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+/* Slide-out Cart Drawer */
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+}
+
+.cart-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 90vw;
+  height: 100%;
+  background: #ffffff;
+  z-index: 2600;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.cart-drawer-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-drawer-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.cart-item-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: var(--bg-canvas);
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cart-item-price {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cart-item-remove {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.cart-drawer-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-canvas);
+}
+
+.cart-subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+/* Quick View Modal Box */
+.quickview-box {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-container {
+    grid-template-columns: auto 1fr auto;
+  }
+  
+  .nav-left, .nav-right {
+    display: none;
+  }
+  
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  
+  .hero-left-content {
+    padding-right: 0;
+  }
+  
+  .hero-right-content {
+    padding-left: 0;
+  }
+  
+  .hero-vertical-stripe {
+    display: none;
+  }
+  
+  .story-split-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .story-col-right, .story-col-right .story-subtitle, .story-col-right .story-title, .story-col-right .story-desc {
+    text-align: center;
+  }
+  
+  .cat-headline-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cat-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .media-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .media-card:nth-child(4), .media-card:nth-child(5) {
+    display: none;
+  }
+  
+  .lineup-items-track {
+    gap: 1rem;
+  }
+  
+  .lineup-item:not(.active-center) {
+    display: none;
+  }
+  
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-main-title {
+    font-size: 2.6rem;
+  }
+  
+  .floating-hero-helmet {
+    width: 250px;
+  }
+  
+  .cat-big-name {
+    font-size: 1.8rem;
+  }
+  
+  .cat-products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .media-cards-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quickview-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
 </head>
 <body data-theme="gold">
 
@@ -116,7 +1683,7 @@
 
         <!-- Center Stage: Floating Helmet with Parallax effect -->
         <div class="hero-center-stage">
-          <img src="assets/images/hero-helmet.jpg" 
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/hero-helmet.jpg" 
                alt="Valiant Jet-X20 Titanium Luxury Helmet" 
                class="floating-hero-helmet" 
                id="heroFloatingHelmet"
@@ -128,7 +1695,7 @@
           <div class="mini-preview-card">
             <button class="mini-preview-nav" onclick="prevMiniHero()" aria-label="Sebelumnya">&lsaquo;</button>
             <div class="mini-preview-thumb-wrap">
-              <img src="assets/images/chrome-visor.jpg" 
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/chrome-visor.jpg" 
                    alt="VM-500 Chrome Edition" 
                    class="mini-preview-thumb" 
                    id="miniHeroThumb"
@@ -168,7 +1735,7 @@
 
           <!-- Center Column: Standing Rider with Bike on Pedestal -->
           <div class="story-col-center">
-            <img src="assets/images/rider-pedestal.jpg" 
+            <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/rider-pedestal.jpg" 
                  alt="Pengendara Valiant Moto Bersama Sepeda Motor Scrambler di Atas Batu" 
                  class="rider-pedestal-img"
                  title="Valiant Moto Rider Lifestyle">
@@ -211,7 +1778,7 @@
         <!-- Item 1: Gloves -->
         <div class="cat-product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/gloves.jpg" alt="Sarung Tangan Kulit Pro Perforated">
+            <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/gloves.jpg" alt="Sarung Tangan Kulit Pro Perforated">
           </div>
           <h3 class="cat-product-title">Sarung Tangan Kulit Pro</h3>
           <div class="cat-product-price">Rp 850.000</div>
@@ -221,7 +1788,7 @@
         <!-- Item 2: Retro White Helmet -->
         <div class="cat-product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/retro-white.jpg" alt="Helm Open Face Dual Racing Stripe">
+            <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/retro-white.jpg" alt="Helm Open Face Dual Racing Stripe">
           </div>
           <h3 class="cat-product-title">Classic Jet Dual-Stripe</h3>
           <div class="cat-product-price">Rp 2.450.000</div>
@@ -231,7 +1798,7 @@
         <!-- Item 3: Frontal White Visor Helmet -->
         <div class="cat-product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/frontal-white.jpg" alt="Helm Aether Full-Visor Touring">
+            <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/frontal-white.jpg" alt="Helm Aether Full-Visor Touring">
           </div>
           <h3 class="cat-product-title">Aether Touring Series</h3>
           <div class="cat-product-price">Rp 3.100.000</div>
@@ -241,7 +1808,7 @@
         <!-- Item 4: Vintage Goggles -->
         <div class="cat-product-card">
           <div class="product-img-wrap">
-            <img src="assets/images/goggles.jpg" alt="Kacamata Goggle Vintage Smoked">
+            <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/goggles.jpg" alt="Kacamata Goggle Vintage Smoked">
           </div>
           <h3 class="cat-product-title">Vintage Smoked Goggle</h3>
           <div class="cat-product-price">Rp 650.000</div>
@@ -257,21 +1824,21 @@
       <div class="media-cards-row">
         <!-- Card 01 -->
         <div class="media-card" onclick="openVideoModal('01 - Kilas Cahaya Malam: Penjelajahan Kota')">
-          <img src="assets/images/camo-helmet.jpg" alt="Cerita 01" class="media-card-bg">
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/camo-helmet.jpg" alt="Cerita 01" class="media-card-bg">
           <span class="media-number-tag">01</span>
           <div class="media-card-info">Night Cruise Heritage</div>
         </div>
 
         <!-- Card 02 -->
         <div class="media-card" onclick="openVideoModal('02 - Keterampilan Tangan Atelier & Komposit Karbon')">
-          <img src="assets/images/carbon-scrambler.jpg" alt="Cerita 02" class="media-card-bg">
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/carbon-scrambler.jpg" alt="Cerita 02" class="media-card-bg">
           <span class="media-number-tag">02</span>
           <div class="media-card-info">Atelier Craftsmanship</div>
         </div>
 
         <!-- Card 03 (FEATURED WITH ACCENT BORDER & PLAY BUTTON) -->
         <div class="media-card featured-media-card" onclick="openVideoModal('03 - Ekspedisi Lintas Jawa: Jejak Tanah & Kebebasan')">
-          <img src="assets/images/media-action.jpg" alt="Dokumenter Utama 03" class="media-card-bg">
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/media-action.jpg" alt="Dokumenter Utama 03" class="media-card-bg">
           <button class="play-video-btn" aria-label="Putar Video Cerita">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -282,14 +1849,14 @@
 
         <!-- Card 04 -->
         <div class="media-card" onclick="openVideoModal('04 - Menembus Lembah & Kabut Dataran Tinggi')">
-          <img src="assets/images/retro-white.jpg" alt="Cerita 04" class="media-card-bg">
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/retro-white.jpg" alt="Cerita 04" class="media-card-bg">
           <span class="media-number-tag">04</span>
           <div class="media-card-info">Alpine Pass Tour</div>
         </div>
 
         <!-- Card 05 -->
         <div class="media-card" onclick="openVideoModal('05 - Perjalanan Tengah Malam Menuju Fajar')">
-          <img src="assets/images/hero-helmet.jpg" alt="Cerita 05" class="media-card-bg">
+          <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/hero-helmet.jpg" alt="Cerita 05" class="media-card-bg">
           <span class="media-number-tag">05</span>
           <div class="media-card-info">Midnight Cruiser</div>
         </div>
@@ -307,7 +1874,7 @@
           <!-- Item 1: Scrambler -->
           <div class="lineup-item" onclick="selectLineup(0)">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/carbon-scrambler.jpg" alt="Scrambler Raw">
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/carbon-scrambler.jpg" alt="Scrambler Raw">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-title">Scrambler</div>
@@ -316,7 +1883,7 @@
           <!-- Item 2: Jet Camo Mlag -->
           <div class="lineup-item" onclick="selectLineup(1)">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/camo-helmet.jpg" alt="Jet Camo Mlag">
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/camo-helmet.jpg" alt="Jet Camo Mlag">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-title">Jet Camo Mlag</div>
@@ -325,7 +1892,7 @@
           <!-- Item 3: Center Enlarged Hero: Chrome With Visor Plain -->
           <div class="lineup-item active-center" id="lineupCenterItem" onclick="openQuickView('chrome-visor')">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/chrome-visor.jpg" alt="Chrome With Visor Plain" id="lineupCenterImg">
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/chrome-visor.jpg" alt="Chrome With Visor Plain" id="lineupCenterImg">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-big-name" id="lineupCenterTitle">Chrome</div>
@@ -336,7 +1903,7 @@
           <!-- Item 4: Zero -->
           <div class="lineup-item" onclick="selectLineup(3)">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/frontal-white.jpg" alt="Zero Helmet">
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/frontal-white.jpg" alt="Zero Helmet">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-title">Zero</div>
@@ -345,7 +1912,7 @@
           <!-- Item 5: Ball Re Dot -->
           <div class="lineup-item" onclick="selectLineup(4)">
             <div class="lineup-thumb-wrap">
-              <img src="assets/images/retro-white.jpg" alt="Ball Re Dot">
+              <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/retro-white.jpg" alt="Ball Re Dot">
             </div>
             <div class="lineup-indicator-tick"></div>
             <div class="lineup-title">Ball-Re Dot</div>
@@ -481,7 +2048,7 @@
     <div class="modal-box" style="max-width: 720px; background: #000; color: #fff; padding: 1.5rem;">
       <button class="modal-close-btn" style="background: rgba(255,255,255,0.2); color: #fff;" onclick="closeVideoModal()">&times;</button>
       <div style="position: relative; width: 100%; padding-top: 56.25%; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
-        <img src="assets/images/media-action.jpg" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover;" alt="Pratinjau Video">
+        <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/media-action.jpg" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover;" alt="Pratinjau Video">
         <div style="position: absolute; inset:0; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center;">
           <div class="play-video-btn" style="width: 72px; height: 72px; background: var(--color-primary); border: none;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff">
@@ -520,7 +2087,7 @@
     <div class="modal-box quickview-box">
       <button class="modal-close-btn" onclick="closeQuickView()">&times;</button>
       <div style="display: flex; align-items: center; justify-content: center; background: var(--bg-canvas); border-radius: 8px; padding: 1.5rem; height: 100%;">
-        <img src="assets/images/hero-helmet.jpg" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
+        <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="assets/images/hero-helmet.jpg" id="qvImg" alt="Detail Produk" style="max-height: 280px; object-fit: contain; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));">
       </div>
       <div>
         <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase;" id="qvCategory">Koleksi Spesial Atelier</div>
@@ -567,6 +2134,493 @@
   </div>
 
   <!-- JavaScript -->
+  <script src="main.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+/**
+ * VALIANT MOTO ATELIER - JAVASCRIPT CONTROLLER
+ * Ultra-Responsive Modern Automotive Experience
+ */
+
+// --- PRODUCT CATALOG DATA ---
+const productsData = {
+  'hero-helmet': {
+    title: 'JET-X20 MLAG TITANIUM',
+    category: 'Koleksi Flagship Atelier',
+    price: 3450000,
+    img: 'assets/images/hero-helmet.jpg',
+    desc: 'Helm flagship Valiant dengan konstruksi cangkang komposit Forged Carbon dan aksen emas champagne. Dilengkapi dengan visor polikarbonat optik kelas 1 anti-gores, tali Double D-Ring titanium, dan bantalan interior mewah berpori antimikroba.',
+    specs: { cert: 'ECE 22.06 & SNI', weight: '1.250g', shell: 'Forged Carbon', warranty: '5 Tahun' }
+  },
+  'chrome-visor': {
+    title: 'CHROME WITH VISOR PLAIN',
+    category: 'Helm Seri Chrome Heritage',
+    price: 3250000,
+    img: 'assets/images/chrome-visor.jpg',
+    desc: 'Finishing cermin chrome elektrolitik dengan lapisan pernis pelindung UV ultra-keras. Menggabungkan gaya retro murni dengan sistem aerodinamis modern berkecepatan tinggi.',
+    specs: { cert: 'ECE 22.06 & DOT', weight: '1.300g', shell: 'Fiberglass Tri-Composite', warranty: '3 Tahun' }
+  },
+  'gloves': {
+    title: 'SARUNG TANGAN KULIT PRO',
+    category: 'Perlengkapan Pelindung Tangan',
+    price: 850000,
+    img: 'assets/images/gloves.jpg',
+    desc: 'Sarung tangan kulit kambing perforasi dengan pelindung buku jari berbahan serat karbon asli. Mendukung kendali layar sentuh ponsel dan ventilasi sejuk saat berkendara di iklim tropis.',
+    specs: { cert: 'CE Level 1 KP', weight: '220g', shell: 'Top Grain Leather & Carbon', warranty: '1 Tahun' }
+  },
+  'retro-white': {
+    title: 'CLASSIC JET DUAL-STRIPE',
+    category: 'Helm Open Face Klasik',
+    price: 2450000,
+    img: 'assets/images/retro-white.jpg',
+    desc: 'Helm open-face berbalut putih mutiara dengan garis balap kembar bernuansa vintage. Didesain untuk kenyamanan berkendara harian di perkotaan dan motor custom klasik.',
+    specs: { cert: 'SNI & DOT', weight: '1.150g', shell: 'Multi-Fiber Matrix', warranty: '3 Tahun' }
+  },
+  'frontal-white': {
+    title: 'AETHER TOURING SERIES',
+    category: 'Helm Full Face Aerodinamis',
+    price: 3100000,
+    img: 'assets/images/frontal-white.jpg',
+    desc: 'Desain cangkang aerodinamis yang telah diuji di lorong angin untuk stabilitas maksimal saat melaju cepat. Dilengkapi pelindung dagu kokoh dan sistem sirkulasi udara mutakhir.',
+    specs: { cert: 'ECE 22.06 & SNI', weight: '1.380g', shell: 'Advanced Polycarbonate Shell', warranty: '4 Tahun' }
+  },
+  'goggles': {
+    title: 'VINTAGE SMOKED GOGGLE',
+    category: 'Kacamata Pelindung Vintage',
+    price: 650000,
+    img: 'assets/images/goggles.jpg',
+    desc: 'Kacamata goggle berkontur kulit lembut dengan lensa tahan benturan berwarna asap anti-silau dan lapisan anti-embun permanen.',
+    specs: { cert: 'UV400 & ANSI Z87.1', weight: '140g', shell: 'Real Leather & TPU Frame', warranty: '1 Tahun' }
+  },
+  'camo-helmet': {
+    title: 'JET CAMO MLAG STEALTH',
+    category: 'Helm Edisi Kamuflase Taktis',
+    price: 2950000,
+    img: 'assets/images/camo-helmet.jpg',
+    desc: 'Grafis kamuflase geometris berfinishing matte slate dengan visor gelap magnetik, siap melengkapi penampilan pengendara petualang sejati.',
+    specs: { cert: 'ECE 22.06 & SNI', weight: '1.280g', shell: 'Carbon Kevlar Hybrid', warranty: '3 Tahun' }
+  },
+  'carbon-scrambler': {
+    title: 'SCRAMBLER RAW FORGED CARBON',
+    category: 'Helm Seri Scrambler Petualang',
+    price: 3600000,
+    img: 'assets/images/carbon-scrambler.jpg',
+    desc: 'Permukaan serat karbon anyam ekspos tanpa cat dengan pet pelindung matahari yang dapat dilepas pasang dan pengunci kacamata goggle belakang.',
+    specs: { cert: 'ECE 22.06 & SNI', weight: '1.180g', shell: 'Pure Forged Carbon Fiber', warranty: '5 Tahun' }
+  }
+};
+
+// --- CART STATE ---
+let cart = [
+  { id: 'hero-helmet', title: 'JET-X20 MLAG TITANIUM', price: 3450000, qty: 1, img: 'assets/images/hero-helmet.jpg' },
+  { id: 'gloves', title: 'SARUNG TANGAN KULIT PRO', price: 850000, qty: 1, img: 'assets/images/gloves.jpg' }
+];
+
+// --- MINI HERO STATE ---
+const miniHeroList = [
+  { title: 'VM-500 CHROME', img: 'assets/images/chrome-visor.jpg', id: 'chrome-visor' },
+  { title: 'JET CAMO MLAG', img: 'assets/images/camo-helmet.jpg', id: 'camo-helmet' },
+  { title: 'SCRAMBLER RAW', img: 'assets/images/carbon-scrambler.jpg', id: 'carbon-scrambler' }
+];
+let miniHeroIndex = 0;
+
+// --- CATEGORIES STATE ---
+const categoryList = [
+  {
+    name: 'HELM OPEN FACE',
+    desc: 'Valiant Moto Accessories Ltd. menghadirkan jajaran helm open face premium dengan cangkang berbobot ringan, visor aerodinamis optik jernih, dan kenyamanan sirkulasi udara luar biasa untuk pengendara kota maupun pecinta motor kustom.'
+  },
+  {
+    name: 'HELM TOURING FULL-FACE',
+    desc: 'Perlindungan maksimal dengan cangkang multi-komposit berdaya serap benturan tinggi. Dirancang untuk meredam kebisingan angin dan memberikan kestabilan optimal dalam kecepatan tinggi.'
+  },
+  {
+    name: 'AKSESORI & SARUNG TANGAN',
+    desc: 'Dibuat dari kulit premium pilihan dengan perlindungan serat karbon pada persendian buku jari, serta kacamata goggle berkontur kulit vintage dengan perlindungan UV400.'
+  }
+];
+let currentCategoryIndex = 0;
+
+// --- LINEUP CAROUSEL STATE ---
+const lineupList = [
+  { id: 'carbon-scrambler', name: 'Scrambler', sub: 'Raw Carbon Series', price: 3600000, img: 'assets/images/carbon-scrambler.jpg' },
+  { id: 'camo-helmet', name: 'Jet Camo', sub: 'Stealth Tactical Mlag', price: 2950000, img: 'assets/images/camo-helmet.jpg' },
+  { id: 'chrome-visor', name: 'Chrome', sub: 'With Visor Plain', price: 3250000, img: 'assets/images/chrome-visor.jpg' },
+  { id: 'frontal-white', name: 'Zero', sub: 'Pure Titanium Touring', price: 3100000, img: 'assets/images/frontal-white.jpg' },
+  { id: 'retro-white', name: 'Ball-Re Dot', sub: 'Classic Pearl White', price: 2450000, img: 'assets/images/retro-white.jpg' }
+];
+let activeLineupIndex = 2; // Default centered on Chrome
+
+// --- INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart();
+  setupTiltEffects();
+});
+
+// --- AUDIO FEEDBACK (SYNTHESIZED MECHANICAL CLICK) ---
+function playMechanicalClick() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(120, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.05);
+    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  } catch (e) {
+    // Ignore audio restrictions
+  }
+}
+
+// --- THEME COLOR SWITCHER ---
+function switchTheme(themeName) {
+  playMechanicalClick();
+  document.body.setAttribute('data-theme', themeName);
+}
+
+// --- 3D TILT EFFECT ON HERO HELMET ---
+function setupTiltEffects() {
+  const helmet = document.getElementById('heroFloatingHelmet');
+  if (!helmet) return;
+
+  const heroWrapper = document.querySelector('.hero-wrapper');
+  if (heroWrapper) {
+    heroWrapper.addEventListener('mousemove', (e) => {
+      const rect = helmet.getBoundingClientRect();
+      const x = e.clientX - (rect.left + rect.width / 2);
+      const y = e.clientY - (rect.top + rect.height / 2);
+      const tiltX = (y / 40) * -1;
+      const tiltY = (x / 40);
+      helmet.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-5px)`;
+    });
+
+    heroWrapper.addEventListener('mouseleave', () => {
+      helmet.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  }
+}
+
+// --- MINI HERO CAROUSEL CONTROLS ---
+function prevMiniHero() {
+  playMechanicalClick();
+  miniHeroIndex = (miniHeroIndex - 1 + miniHeroList.length) % miniHeroList.length;
+  updateMiniHeroDisplay();
+}
+
+function nextMiniHero() {
+  playMechanicalClick();
+  miniHeroIndex = (miniHeroIndex + 1) % miniHeroList.length;
+  updateMiniHeroDisplay();
+}
+
+function updateMiniHeroDisplay() {
+  const item = miniHeroList[miniHeroIndex];
+  const thumb = document.getElementById('miniHeroThumb');
+  const title = document.getElementById('miniHeroTitle');
+  if (thumb && title) {
+    thumb.src = item.img;
+    thumb.alt = item.title;
+    title.textContent = item.title;
+    thumb.onclick = () => openQuickView(item.id);
+  }
+}
+
+// --- CATEGORY SWITCHER ---
+function prevCategory() {
+  playMechanicalClick();
+  currentCategoryIndex = (currentCategoryIndex - 1 + categoryList.length) % categoryList.length;
+  updateCategoryDisplay();
+}
+
+function nextCategory() {
+  playMechanicalClick();
+  currentCategoryIndex = (currentCategoryIndex + 1) % categoryList.length;
+  updateCategoryDisplay();
+}
+
+function updateCategoryDisplay() {
+  const cat = categoryList[currentCategoryIndex];
+  const titleEl = document.getElementById('categoryTitleText');
+  const descEl = document.getElementById('categoryDescText');
+  if (titleEl && descEl) {
+    titleEl.textContent = cat.name;
+    descEl.textContent = cat.desc;
+  }
+}
+
+// --- BOTTOM LINEUP CAROUSEL ---
+function rotateLineup(direction) {
+  playMechanicalClick();
+  activeLineupIndex = (activeLineupIndex + direction + lineupList.length) % lineupList.length;
+  updateLineupDisplay();
+}
+
+function selectLineup(index) {
+  playMechanicalClick();
+  activeLineupIndex = index;
+  updateLineupDisplay();
+}
+
+function updateLineupDisplay() {
+  const item = lineupList[activeLineupIndex];
+  const centerTitle = document.getElementById('lineupCenterTitle');
+  const centerSub = document.getElementById('lineupCenterSubtitle');
+  const centerImg = document.getElementById('lineupCenterImg');
+  const centerItem = document.getElementById('lineupCenterItem');
+
+  if (centerTitle && centerSub && centerImg) {
+    centerTitle.textContent = item.name;
+    centerSub.textContent = item.sub;
+    centerImg.src = item.img;
+    centerImg.alt = item.name;
+    centerItem.onclick = () => openQuickView(item.id);
+  }
+}
+
+// --- QUICK VIEW MODAL ---
+let currentQuickViewId = null;
+
+function openQuickView(productId) {
+  playMechanicalClick();
+  const product = productsData[productId] || productsData['hero-helmet'];
+  currentQuickViewId = productId;
+
+  document.getElementById('qvTitle').textContent = product.title;
+  document.getElementById('qvCategory').textContent = product.category;
+  document.getElementById('qvPrice').textContent = 'Rp ' + product.price.toLocaleString('id-ID');
+  document.getElementById('qvDesc').textContent = product.desc;
+  document.getElementById('qvImg').src = product.img;
+
+  const modal = document.getElementById('quickViewModal');
+  modal.classList.add('active');
+}
+
+function closeQuickView() {
+  const modal = document.getElementById('quickViewModal');
+  modal.classList.remove('active');
+}
+
+function handleQuickViewAddToCart() {
+  if (currentQuickViewId && productsData[currentQuickViewId]) {
+    const p = productsData[currentQuickViewId];
+    addToCart(p.title, p.price, p.img, currentQuickViewId);
+    closeQuickView();
+  }
+}
+
+// --- CART DRAWER LOGIC ---
+function openCartDrawer() {
+  playMechanicalClick();
+  document.getElementById('cartOverlay').classList.add('active');
+  document.getElementById('cartDrawer').classList.add('open');
+}
+
+function closeCartDrawer() {
+  document.getElementById('cartOverlay').classList.remove('active');
+  document.getElementById('cartDrawer').classList.remove('open');
+}
+
+function addToCart(title, price, img, id) {
+  playMechanicalClick();
+  const existing = cart.find(item => item.title === title);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id: id || 'item-' + Date.now(), title, price, qty: 1, img });
+  }
+  renderCart();
+  openCartDrawer();
+}
+
+function removeFromCart(index) {
+  playMechanicalClick();
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById('cartItemsContainer');
+  const badge = document.getElementById('cartCountBadge');
+  const subtotalEl = document.getElementById('cartSubtotalText');
+  if (!container) return;
+
+  const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+  if (badge) badge.textContent = totalCount;
+  if (subtotalEl) subtotalEl.textContent = 'Rp ' + totalPrice.toLocaleString('id-ID');
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; color: var(--text-muted); padding: 3rem 1rem;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 12px; opacity: 0.5;">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <p>Keranjang pesanan Anda masih kosong.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = cart.map((item, idx) => `
+    <div class="cart-item-row">
+      <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="${item.img}" alt="${item.title}" class="cart-item-thumb">
+      <div class="cart-item-details">
+        <div class="cart-item-name">${item.title}</div>
+        <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')} &times; ${item.qty}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${idx})" title="Hapus">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+      </button>
+    </div>
+  `).join('');
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) {
+    alert('Keranjang belanja Anda masih kosong.');
+    return;
+  }
+  const orderList = cart.map(i => `• ${i.title} (${i.qty}x) - Rp ${(i.price * i.qty).toLocaleString('id-ID')}`).join('%0A');
+  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  const message = `Halo Valiant Moto Atelier Indonesia,%0A%0ASaya ingin memesan helm / gear berikut:%0A${orderList}%0A%0ATotal Pesanan: Rp ${totalPrice.toLocaleString('id-ID')}%0AMohon info ketersediaan stok & metode pengiriman. Terima kasih!`;
+  const waUrl = `https://wa.me/6281234567890?text=${message}`;
+  window.open(waUrl, '_blank');
+}
+
+// --- DESIGN SUBMISSION MODAL ---
+function openDesignModal() {
+  playMechanicalClick();
+  document.getElementById('designModal').classList.add('active');
+}
+
+function closeDesignModal() {
+  document.getElementById('designModal').classList.remove('active');
+}
+
+function handleFileSelected(event) {
+  const file = event.target.files[0];
+  if (file) {
+    document.getElementById('fileNameDisplay').textContent = 'Berkas Terpilih: ' + file.name;
+  }
+}
+
+function submitDesignForm(e) {
+  e.preventDefault();
+  alert('Terima kasih! Konsep desain Anda telah berhasil dikirimkan ke Tim Kurator Valiant Moto Atelier. Tim kami akan menghubungi Anda melalui WhatsApp jika karya Anda terpilih!');
+  closeDesignModal();
+}
+
+// --- VIDEO MODAL ---
+function openVideoModal(title) {
+  playMechanicalClick();
+  if (title) {
+    document.getElementById('videoModalTitleText').textContent = title;
+  }
+  document.getElementById('videoModal').classList.add('active');
+}
+
+function closeVideoModal() {
+  document.getElementById('videoModal').classList.remove('active');
+}
+
+// --- SEARCH MODAL ---
+function openSearchModal() {
+  playMechanicalClick();
+  document.getElementById('searchModal').classList.add('active');
+  const input = document.getElementById('searchInput');
+  if (input) {
+    input.value = '';
+    setTimeout(() => input.focus(), 150);
+    handleSearch('');
+  }
+}
+
+function closeSearchModal() {
+  document.getElementById('searchModal').classList.remove('active');
+}
+
+function handleSearch(query) {
+  const resultsContainer = document.getElementById('searchResultsList');
+  if (!resultsContainer) return;
+
+  const q = query.trim().toLowerCase();
+  const keys = Object.keys(productsData);
+  const matched = keys.filter(k => {
+    const p = productsData[k];
+    return p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+  });
+
+  if (matched.length === 0) {
+    resultsContainer.innerHTML = '<div style="font-size: 0.85rem; color: var(--text-muted); padding: 1rem 0;">Tidak ditemukan produk dengan kata kunci tersebut.</div>';
+    return;
+  }
+
+  resultsContainer.innerHTML = matched.map(k => {
+    const p = productsData[k];
+    return `
+      <div onclick="openQuickView('${k}'); closeSearchModal();" style="display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 6px; background: var(--bg-canvas); cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='rgba(197, 146, 53, 0.1)'" onmouseout="this.style.background='var(--bg-canvas)'">
+        <img onerror="if(!this.dataset.err){this.dataset.err=1;if(this.src.includes('assets/images/')){this.src=this.src.replace('assets/images/','images/');}}" src="${p.img}" style="width: 44px; height: 44px; object-fit: contain;">
+        <div>
+          <div style="font-weight: 700; font-size: 0.85rem;">${p.title}</div>
+          <div style="font-size: 0.75rem; color: var(--color-primary); font-weight: 700;">Rp ${p.price.toLocaleString('id-ID')}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// --- MOBILE NAVIGATION TOGGLE ---
+function toggleMobileNav() {
+  const navLeft = document.querySelector('.nav-left');
+  const navRight = document.querySelector('.nav-right');
+  if (navLeft && navRight) {
+    const isShowing = navLeft.style.display === 'flex';
+    if (isShowing) {
+      navLeft.style.display = 'none';
+      navRight.style.display = 'none';
+    } else {
+      navLeft.style.display = 'flex';
+      navLeft.style.flexDirection = 'column';
+      navLeft.style.position = 'absolute';
+      navLeft.style.top = '84px';
+      navLeft.style.left = '0';
+      navLeft.style.width = '100%';
+      navLeft.style.background = '#ffffff';
+      navLeft.style.padding = '1.5rem';
+      navLeft.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+      navRight.style.display = 'flex';
+      navRight.style.flexDirection = 'column';
+      navRight.style.position = 'absolute';
+      navRight.style.top = '250px';
+      navRight.style.left = '0';
+      navRight.style.width = '100%';
+      navRight.style.background = '#ffffff';
+      navRight.style.padding = '1.5rem';
+    }
+  }
+}
+
+// --- SMOOTH SCROLL HELPER ---
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+  </script>
 </body>
 </html>
