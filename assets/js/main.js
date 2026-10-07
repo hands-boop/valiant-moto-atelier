@@ -443,34 +443,20 @@ function handleSearch(query) {
   }).join('');
 }
 
-// --- MOBILE NAVIGATION TOGGLE ---
+// --- MOBILE NAVIGATION TOGGLE & DRAWER ---
 function toggleMobileNav() {
-  const navLeft = document.querySelector('.nav-left');
-  const navRight = document.querySelector('.nav-right');
-  if (navLeft && navRight) {
-    const isShowing = navLeft.style.display === 'flex';
-    if (isShowing) {
-      navLeft.style.display = 'none';
-      navRight.style.display = 'none';
-    } else {
-      navLeft.style.display = 'flex';
-      navLeft.style.flexDirection = 'column';
-      navLeft.style.position = 'absolute';
-      navLeft.style.top = '84px';
-      navLeft.style.left = '0';
-      navLeft.style.width = '100%';
-      navLeft.style.background = '#ffffff';
-      navLeft.style.padding = '1.5rem';
-      navLeft.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-      navRight.style.display = 'flex';
-      navRight.style.flexDirection = 'column';
-      navRight.style.position = 'absolute';
-      navRight.style.top = '250px';
-      navRight.style.left = '0';
-      navRight.style.width = '100%';
-      navRight.style.background = '#ffffff';
-      navRight.style.padding = '1.5rem';
-    }
+  const menu = document.getElementById('mobileNavMenu');
+  if (menu) {
+    const isOpen = menu.classList.toggle('open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+}
+
+function closeMobileNav() {
+  const menu = document.getElementById('mobileNavMenu');
+  if (menu) {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
   }
 }
 
